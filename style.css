@@ -1,0 +1,200 @@
+@import url('https://fonts.googleapis.com/css2?family=YOUR-FONT-NAME&display=swap');
+/* إعدادات عامة */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+      font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+}
+
+/* تفعيل النزول السلس */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  /* مسار الصورة - تأكد من صحة المسار */
+  background-image: url("assets/imgae/ChatGPT Image 16 يونيو 2026، 11_31_24 ص.png");
+
+  /* 1. منع التكرار تماماً */
+  background-repeat: no-repeat;
+
+  /* 2. جعل الصورة تغطي كامل مساحة الشاشة (Viewport) */
+  background-size: cover;
+
+  /* 3. الحل الحقيقي: تثبيت الخلفية في مكانه */
+  background-attachment: fixed;
+
+  /* 4. وضع الصورة في المنتصف لضمان التناسق */
+  background-position: center center;
+
+  /* اختياري: تأكيد أن الـ body يأخذ كامل الطول (لبعض الحالات) */
+  min-height: 100vh;
+  margin: 0;
+}
+
+/* الهيدر (القائمة العلوية) */
+header {
+  background: linear-gradient(#7c3c44,#7c3c44);
+  color: #fff;
+  position: fixed; /* جعل الهيدر ثابتاً في الأعلى */
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  padding: 10px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* حاوية للهيدر لترتيب اللوجو والقائمة */
+header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1500px;
+  margin: 0 auto;
+
+}
+
+.logo img {
+  height: 80px; /* تقليل الارتفاع لجعل الهيدر أنحف وأجمل */
+  width: auto;
+}
+
+nav ul {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  gap: 15px;
+}
+
+nav ul li {
+  margin: 0 15px; /* تقليل المسافة الأفقية بين الروابط */
+  position: relative; /* ضروري لتحديد موقع القائمة المنسدلة */
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 20px;
+  transition: color 0.3s;
+}
+
+/* إزالة الخط العادي وإضافة الخط الجميل (Animated Underline) */
+nav ul li a:hover {
+  text-decoration: none;
+}
+
+/* الخط المتحرك للروابط الأساسية فقط */
+nav > ul > li > a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 3px; /* سمك الخط */
+  bottom: -8px;
+  right: 0; /* يبدأ من اليمين لأن الاتجاه RTL */
+  background-color: #ffffff; /* لون الخط */
+  transition: width 0.3s ease-in-out;
+}
+
+/* تمدد الخط عند الوقوف على الرابط أو فتح القائمة المنسدلة */
+nav > ul > li:hover > a::after {
+  width: 100%; /* تمدد الخط عند الوقوف عليه */
+}
+
+/* تنسيق سهم القائمة المنسدلة */
+.dropdown-arrow {
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+  vertical-align: middle;
+  filter: brightness(0) invert(1); /* جعل السهم أبيض */
+}
+
+/* تنسيق القائمة المنسدلة (Dropdown) */
+.dropdown {
+  display: none;
+  position: absolute;
+  top: 130%;
+  right: 0;
+  background-color: #6c363c;
+  list-style: none;
+  min-width: 180px;
+  flex-direction: column;
+  padding: 10px 0;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+  z-index: 1001;
+  border-radius: 8px;
+  overflow: hidden; /* لضمان عدم خروج لون الخلفية عن الزوايا المنحنية */
+}
+
+.dropdown li {
+  margin: 0;
+  padding: 8px 15px;
+  transition: background-color 0.3s;
+}
+
+/* تغيير لون الخلفية للأفرع عند التمرير */
+.dropdown li:hover {
+  background-color: rgba(0, 0, 0, 0.378); /* درجة أفتح قليلاً من العنابي */
+}
+
+.dropdown li a {
+  font-size: 18px; /* حجم أصغر قليلاً للقوائم الفرعية */
+  text-decoration: none; /* إزالة أي خط تحت النص */
+}
+
+.dropdown li a::after {
+  content: none; /* التأكد من عدم ظهور الخط المتحرك داخل القائمة المنسدلة */
+}
+
+.has-dropdown:hover .dropdown {
+  display: flex; /* إظهار القائمة عند تمرير الماوس */
+}
+
+/* تنسيق الفوتر الجديد */
+.footer {
+  background-color: #7d3f45; /* اللون العنابي الموجود في الصورة */
+  color: white;
+  padding: 20px 0;
+}
+
+.footer-container {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  align-items: center;
+  gap: 30px; /* المسافة بين العناصر */
+  flex-wrap: wrap;
+}
+
+.footer-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  /* تم نقل خصائص flex و gap إلى .footer-item a */
+  font-size: 16px; /* تم تكبير الحجم إلى 16 بكسل */
+  font-family: 'Arial', sans-serif; /* تم تغيير خط الفوتر هنا */
+  font-weight: bold;
+  color: #f8f9fa; /* يمكنك تغيير هذا الكود لأي لون تريده */
+}
+
+/* تنسيق الروابط داخل عناصر الفوتر */
+.footer-item a {
+  color: inherit; /* لضمان أن لون النص داخل الرابط يتبع لون العنصر الأب */
+  text-decoration: none; /* لإزالة الخط الافتراضي تحت الروابط */
+  display: flex; /* لجعل الرابط حاوية مرنة لترتيب الأيقونة والنص */
+  align-items: center; /* لمحاذاة الأيقونة والنص عمودياً */
+  gap: 5px; /* المسافة بين الأيقونة والنص */
+}
+
+/* تنسيق الأيقونات (الآن هي صور img) */
+.footer-item img {
+  border-radius: 50%;
+  padding: 5px;
+  width: 41px; /* تحديد عرض الأيقونة */
+  height: 41px; /* تحديد ارتفاع الأيقونة */
+  object-fit: contain; /* للتأكد من أن الصورة تتناسب داخل المساحة المحددة دون قص */
+  background-color: transparent; /* إذا كانت الأيقونات شفافة، قد تحتاج لخلفية */
+  filter: brightness(0) invert(1);
+}
