@@ -8,79 +8,438 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="icon" href="assets/imgae/معتمد لوجو دهبي 3d.png" >
     <style>
-
-
-        /* تنسيق الأقسام */
-        section {
-            height: 100vh; /* كل قسم يأخذ كامل ارتفاع الشاشة */
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-            
-    
-        }
-
-        h1 {
-            font-size: 3rem;
-            
-        }
-
-        p {
-            font-size: 1.2rem;
-            max-width: 600px;
-            text-align: center;
-        }
-
-
-
     </style>
 </head>
 <body>
+    <style>
+        /* Hero Section Styles */
+.hero-section {
+  position: relative;
+  width: 100%;
+  height: 100vh; /* Full viewport height */
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slider-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* تنسيق محتوى الهيرو (النص والأزرار) */
+.hero-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+  font-family: "Cairo", sans-serif;
+  z-index: 3; /* التأكد من ظهوره فوق التعتيم */
+  padding: 60px;
+  border-radius: 10px;
+  width: 100%; /* Allow content to take full width for centering */
+  max-width: 800px; /* Optional: limit max width for readability */
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+  font-weight: 700; /* جعل العنوان عريضاً ليظهر الخط */
+  margin-bottom: 20px;
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  max-width: 600px;
+  text-align: center;
+  font-weight: 400;
+  margin: 0 auto 30px auto; /* Center paragraph and add bottom margin */
+}
+
+.hero-content .btn {
+  display: inline-block;
+  padding: 15px 30px;
+  background-color: #7c3c44; /* Example button color */
+  color: white;
+  text-decoration: none;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+}
+
+.hero-content .btn:hover {
+  background-color: #261e1f;
+}
+
+/* إضافة طبقة التعتيم (Overlay) داخل كل شريحة */
+.slide::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* درجة التعتيم */
+  z-index: 1;
+}
+
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  animation: fadeSlider 16s infinite; /* زيادة الوقت ليناسب 4 صور */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slide:nth-child(1) { animation-delay: 0s; }
+.slide:nth-child(2) { animation-delay: 4s; }
+.slide:nth-child(3) { animation-delay: 8s; }
+.slide:nth-child(4) { animation-delay: 12s; }
+
+@keyframes fadeSlider {
+  0% { opacity: 0; }
+  5% { opacity: 1; }
+  25% { opacity: 1; }
+  30% { opacity: 0; }
+  100% { opacity: 0; }
+}
+
+
+/*project*/
+
+.projects-section {
+    color: #333;
+    text-align: center;
+    padding: 80px 20px;
+    overflow: hidden;
+}
+
+.projects-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+    color: #7c3c44;
+    font-family: 'Cairo', sans-serif;
+    position: relative;
+    display: inline-block;
+}
+
+.projects-section h2::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background-color: #7c3c44;
+}
+
+.carousel-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.cards-wrapper {
+    display: flex;
+    gap: 20px;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    padding: 20px 10px;
+    width: 100%;
+}
+
+.project-card {
+    min-width: 320px;
+    background: #fff;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+    text-align: right;
+    border: 1px solid #eee;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+}
+
+.project-card img {
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+    display: block;
+}
+
+.project-content {
+    padding: 20px;
+}
+
+.project-content h3 {
+    font-size: 1.3rem;
+    color: #7c3c44;
+    margin-bottom: 10px;
+}
+
+.project-content p {
+    font-size: 0.95rem;
+    color: #666;
+    line-height: 1.6;
+}
+
+.arrow, .view-more {
+    background-color: #7c3c44;
+    border: none;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.arrow {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.arrow:hover {
+    background-color: #261e1f;
+}
+
+.view-more {
+    margin-top: 50px;
+    padding: 14px 45px;
+    border-radius: 30px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    font-family: 'Cairo', sans-serif;
+    box-shadow: 0 4px 15px rgba(124, 60, 68, 0.3);
+}
+
+.view-more:hover {
+    background-color: #261e1f;
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+/*about us*/
+.content-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 50px;
+  background-color: #1a1a1a; /* اللون الغامق */
+  color: white;
+}
+
+.text-side {
+  font-size: 30px;
+  font-family: 'Cairo', sans-serif;
+}
+
+
+
+.image-side {
+  position: relative; /* ضروري للعناصر الزخرفية */
+  width: 40%;
+}
+
+.image-side img {
+  width: 100%;
+  border-radius: 5px;
+  position: relative;
+  z-index: 2;
+}
+
+/* المربع الأحمر (40 عاماً) */
+.badge {
+  position: absolute;
+  top: -30px;
+  left: -30px;
+  background: #7c3c44; /* اللون الأحمر */
+  padding: 20px;
+  z-index: 3;
+}
+
+/* النقاط الزخرفية */
+.dots-pattern {
+  position: absolute;
+  bottom: -20px;
+  right: -20px;
+  width: 100px;
+  height: 100px;
+  background-image: radial-gradient(#fff 1px, transparent 1px);
+  background-size: 10px 10px;
+  z-index: 1;
+}
+    </style>
     <div id="header-placeholder"></div>
 
-    <section id="home">
-        <h1>مرحباً بك</h1>
-        <p></p>
+    <section class="hero-section">
+        <div class="slider-container">
+            <div class="slide" style="background-image: url('assets/index/14941736766258.jpg');">
+                <div class="hero-content">
+                    <h1>إدارة وتنفيذ المشاريع</h1>
+                    <p>تقديم استشارات متخصصة في إدارة المشاريع بكفاءة عالية.</p>
+                    <button class="btn">اطلب الخدمة</button>
+                </div>
+            </div>
+            <div class="slide" style="background-image: url('assets/index/92191736766051.jpg');">
+                <div class="hero-content">
+                    <h1>تخطيط هندسي متكامل</h1>
+                    <p>نحول الأفكار إلى واقع ملموس بدقة واحترافية.</p>
+                    <button class="btn">اطلب الخدمة</button>
+                </div>
+            </div>
+            <div class="slide" style="background-image: url('assets/index/16001737006603.jpg');">
+                <div class="hero-content">
+                    <h1>حلول إنشائية مبتكرة</h1>
+                    <p>نستخدم أحدث التقنيات لضمان استدامة مشاريعكم.</p>
+                    <button class="btn">اطلب الخدمة</button>
+                </div>
+            </div>
+            <div class="slide" style="background-image: url('assets/index/88231736765471 (1).jpg');">
+                <div class="hero-content">
+                    <h1>إشراف فني متميز</h1>
+                    <p>فريقنا يضمن جودة التنفيذ في كل مراحل المشروع.</p>
+                    <button class="btn">اطلب الخدمة</button>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <section id="about">
-        <h1>من نحن</h1>
-        <p></p>
-    </section>
+    <section class="projects-section">
+    <h2>مشاريعنا</h2>
+    <div class="carousel-container">
+        <button class="arrow prev">→</button>
+        <div class="cards-wrapper">
+            <div class="project-card">
+                <img src="assets/project/download.jpg" alt="Project">
+                <div class="project-content">
+                    <h3>مشروع الأبراج الإدارية</h3>
+                    <p>تصميم معماري عصري يراعي كفاءة المساحات والبيئة العملية.</p>
+                </div>
+            </div>
+            <div class="project-card">
+                <img src="assets/project/HOME.jpg" alt="Project">
+                <div class="project-content">
+                    <h3>الفيلا السكنية الفاخرة</h3>
+                    <p>تصميم داخلي فريد يجمع بين الرقي الكلاسيكي واللمسات الحديثة.</p>
+                </div>
+            </div>
+            <div class="project-card">
+                <img src="assets/project/Kiểm toán Nhà nước yêu cầu kiểm điểm tập thể, cá nhân tại Vinacomin.jpg" alt="Project">
+                <div class="project-content">
+                    <h3>المجمع الصناعي المتكامل</h3>
+                    <p>إدارة تنفيذ مشاريع إنشائية ضخمة بأعلى معايير الجودة والهندسة.</p>
+                </div>
+            </div>
+            <!-- تم إضافة مشاريع جديدة هنا -->
+            <div class="project-card">
+                <img src="assets/index/92191736766051.jpg" alt="Project">
+                <div class="project-content">
+                    <h3>مركز الأعمال التقني</h3>
+                    <p>حلول ذكية للمباني الإدارية والشركات الناشئة المتطورة.</p>
+                </div>
+            </div>
+            <div class="project-card">
+                <img src="assets/index/16001737006603.jpg" alt="Project">
+                <div class="project-content">
+                    <h3>مشروع البنية التحتية</h3>
+                    <p>تخطيط وتطوير شبكات الطرق والمرافق الحيوية للمدن الجديدة.</p>
+                </div>
+            </div>
+            <div class="project-card">
+                <img src="assets/index/14941736766258.jpg" alt="Project">
+                <div class="project-content">
+                    <h3>المركز الرياضي المجتمعي</h3>
+                    <p>منشآت رياضية متطورة تخدم رؤية المجتمع الصحي والنشط.</p>
+                </div>
+            </div>
+        </div>
+        <button class="arrow next">←</button>
+    </div>
+    <button class="view-more">المزيد</button>
+</section>
 
-    <section id="vision">
-        <h1>رؤيتنا ورسالتنا</h1>
-        <p></p>
-    </section>
+    <section class="about-section">
+  <div class="content-wrapper">
+    <div class="text-side">
+      <h3>من نحن</h3>
+      <h2>تعرف علينا</h2>
+      <p>خبرة تمتد لأكثر من 10 سنوات، عملنا في أرقى المشاريع...</p>
+      <button>المزيد</button>
+    </div>
+
+    <div class="image-side">
+      <div class="card">
+        <div class="badge">
+          <span>10</span>
+          <p>سنوات من الخبرة</p>
+        </div>
+        <img src="assets/imgae/معتمد لوجو دهبي 3d.png" alt="About us">
+        <div class="dots-pattern"></div>
+      </div>
+    </div>
+  </div>
+</section>
 
     <section id="services">
         <h1>خدماتنا</h1>
-        <p></p>
-    </section>
-
-    <section id="projects">
-        <h1>مشاريعنا</h1>
-        <p></p>
+        <p>هنا ستكون محتويات قسم "خدماتنا".</p>
     </section>
 
     <section id="media">
         <h1>المركز الإعلامي</h1>
-        <p></p>
+        <p>هنا ستكون محتويات قسم "المركز الإعلامي".</p>
     </section>
 
     <section id="contact">
         <h1>بيانات الاتصال</h1>
-        <p></p>
+        <p>هنا ستكون محتويات قسم "بيانات الاتصال".</p>
     </section>
 
     <section id="form">
         <h1>راسلنا</h1>
-        <p></p>
+        <p>هنا ستكون محتويات قسم "راسلنا".</p>
     </section>
     
     <div id="footer-placeholder"></div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const wrapper = document.querySelector('.cards-wrapper');
+            const prevBtn = document.querySelector('.prev'); // الزر الأيسر
+            const nextBtn = document.querySelector('.next'); // الزر الأيمن
+
+            // في اتجاه RTL: القيمة السالبة تحرك المعرض لليسار (التالي) والموجبة لليمين (السابق)
+            prevBtn.onclick = () => wrapper.scrollBy({ left: -340, behavior: 'smooth' });
+            nextBtn.onclick = () => wrapper.scrollBy({ left: 340, behavior: 'smooth' });
+        });
+    </script>
     <script src="js/script.js"></script>
 </body>
 </html>
