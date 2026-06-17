@@ -15,7 +15,7 @@ html {
 
 body {
   /* مسار الصورة - تأكد من صحة المسار */
-  background-image: url("assets/imgae/ChatGPT Image 16 يونيو 2026، 11_31_24 ص.png");
+  background-image: url("assets/imgae/Background.png");
 
   /* 1. منع التكرار تماماً */
   background-repeat: no-repeat;
