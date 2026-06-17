@@ -37,6 +37,9 @@ body {
   margin: 0;
   padding-top: 130px; /* تعويض ارتفاع الهيدر المزدوج لضمان عدم تغطية المحتوى */
 }
+@media (max-width: 768px) {
+  body { padding-top: 100px; }
+}
 
 /* الهيدر (القائمة العلوية) */
 header {
@@ -86,6 +89,10 @@ header {
   color: #141414; /* تغيير اللون للذهبي عند التمرير */
 }
 
+@media (max-width: 768px) {
+  .top-bar { display: none; } /* إخفاء الشريط العلوي في الجوال لتوفير مساحة */
+}
+
 /* حاوية للهيدر لترتيب اللوجو والقائمة */
 header .container {
   display: flex;
@@ -99,9 +106,49 @@ header .container {
   padding: 10px 30px;
 }
 
+@media (max-width: 768px) {
+  .main-header { padding: 10px 15px; }
+  .logo img { height: 50px; }
+}
+
+@media (max-width: 768px) {
+  .main-header { flex-direction: row-reverse; justify-content: space-between; align-items: center; }
+  
+  .hamburger-menu { display: block !important; cursor: pointer; font-size: 24px; color: white; }
+
+  nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: #7c3c44;
+    display: none;
+    flex-direction: column;
+    padding: 20px 0;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+  }
+
+  nav.active { display: flex; }
+
+  nav ul { flex-direction: column; align-items: center; gap: 20px !important; }
+  nav ul li { margin: 10px 0; }
+  
+  .dropdown { position: static; box-shadow: none; background-color: rgba(0,0,0,0.1); width: 100%; }
+  .has-dropdown:hover .dropdown { display: flex; }
+}
+
+.hamburger-menu {
+  display: none;
+}
+
 .logo img {
   height: 75px; /* حجم متناسق مع الهيدر الجديد */
   width: auto;
+}
+
+@media (max-width: 768px) {
+  nav ul { gap: 5px; }
+  nav ul li a { font-size: 14px; }
 }
 
 nav ul {
@@ -222,6 +269,10 @@ nav > ul > li:hover > a::after {
   align-items: center;
   gap: 30px; /* المسافة بين العناصر */
   flex-wrap: wrap;
+}
+@media (max-width: 768px) {
+  .footer-container { flex-direction: column; text-align: center; gap: 15px; }
+  .footer-item a { justify-content: center; }
 }
 
 .footer-item {
