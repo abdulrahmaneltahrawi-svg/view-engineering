@@ -235,7 +235,6 @@ nav > ul > li:hover > a::after {
   font-size: 16px; /* حجم أصغر قليلاً للقوائم الفرعية */
   text-decoration: none; /* إزالة أي خط تحت النص */
   display: flex;
-  justify-content: space-between;
   align-items: center;
   gap: 10px;
   width: 100%;
