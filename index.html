@@ -494,11 +494,14 @@
   color: white;
   text-decoration: none;
   margin-top: 20px;
+  transition: 0.3s;
 }
 
 .btn:hover {
   background-color: #0a0a0ac0;
   border: 2px solid rgba(213, 211, 211, 0.653);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transform: scale(1.1)
 }
 
 /*services*/
@@ -525,6 +528,18 @@
   margin: 60px 0 40px;
   color: #7c3c44;
   font-family: 'Cairo', sans-serif;
+  position: relative;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background-color: #7c3c44;
 }
 
 .service-card {
@@ -594,10 +609,11 @@
   align-items: center;
   justify-content: center;
   transition: 0.3s;
+  border: 2px solid #7c3c44;
 }
 .icon-circle img {
-  width: 55px; /* حجم الصورة داخل الدائرة */
-  height: 55px;
+  width: 60px; /* حجم الصورة داخل الدائرة */
+  height: 60px;
   object-fit: contain;
 }
 

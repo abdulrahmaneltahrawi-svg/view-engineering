@@ -43,7 +43,7 @@ body {
 
 /* الهيدر (القائمة العلوية) */
 header {
-  background: url('assets/imgae/WhatsApp Image 2026-06-17 at 10.08.49 AM.jpeg');
+  background-color: #7c3c44;
   color: #fff;
   position: fixed; /* جعل الهيدر ثابتاً في الأعلى */
   width: 100%;
@@ -256,7 +256,7 @@ nav > ul > li:hover > a::after {
 
 /* تنسيق الفوتر الجديد */
 .footer {
-  background: url('assets/imgae/WhatsApp Image 2026-06-17 at 10.08.49 AM.jpeg'); /* اللون العنابي الموجود في الصورة */
+  background-color: #7c3c44; /* اللون العنابي الموجود في الصورة */
   color: white;
   padding: 20px 0;
 }
