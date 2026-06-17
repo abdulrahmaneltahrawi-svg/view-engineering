@@ -70,6 +70,7 @@ header {
 .top-bar-contact, .top-bar-social {
   display: flex;
   gap: 20px;
+  direction: ltr;
 }
 
 .top-bar-contact a, .top-bar-social a {
@@ -169,6 +170,7 @@ nav > ul > li:hover > a::after {
   z-index: 1001;
   border-radius: 8px;
   overflow: hidden; /* لضمان عدم خروج لون الخلفية عن الزوايا المنحنية */
+  direction: ltr;
 }
 
 .dropdown li {
@@ -244,6 +246,7 @@ nav > ul > li:hover > a::after {
   display: flex; /* لجعل الرابط حاوية مرنة لترتيب الأيقونة والنص */
   align-items: center; /* لمحاذاة الأيقونة والنص عمودياً */
   gap: 5px; /* المسافة بين الأيقونة والنص */
+  direction: ltr;
 }
 
 /* تنسيق الأيقونات (الآن هي صور img) */

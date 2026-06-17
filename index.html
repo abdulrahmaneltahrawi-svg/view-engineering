@@ -584,48 +584,49 @@
     <section class="projects-section" id="projects">
     <h2>مشاريعنا</h2>
     <div class="carousel-container">
+        <button class="arrow prev">→</button>
         <div class="cards-wrapper">
             <div class="project-card">
-                <img src="assets/project/download.jpg" alt="Project">
+                <img src="assets/new-project/ChatGPT Image Jun 17, 2026, 10_54_29 AM (1).png" alt="Project">
                 <div class="project-content">
-                    <h3>مشروع الأبراج الإدارية</h3>
+                    <h3>مشروع فيلا سكنية</h3>
                     <p>تصميم معماري عصري يراعي كفاءة المساحات والبيئة العملية.</p>
                 </div>
             </div>
             <div class="project-card">
-                <img src="assets/project/HOME.jpg" alt="Project">
+                <img src="assets/new-project/ChatGPT Image Jun 17, 2026, 11_13_29 AM.png" alt="Project">
                 <div class="project-content">
                     <h3>الفيلا السكنية الفاخرة</h3>
                     <p>تصميم داخلي فريد يجمع بين الرقي الكلاسيكي واللمسات الحديثة.</p>
                 </div>
             </div>
             <div class="project-card">
-                <img src="assets/project/Kiểm toán Nhà nước yêu cầu kiểm điểm tập thể, cá nhân tại Vinacomin.jpg" alt="Project">
+                <img src="assets/new-project/ChatGPT Image Jun 17, 2026, 11_15_05 AM.png" alt="Project">
                 <div class="project-content">
-                    <h3>المجمع الصناعي المتكامل</h3>
+                    <h3>تصميم عمارة سكنية</h3>
                     <p>إدارة تنفيذ مشاريع إنشائية ضخمة بأعلى معايير الجودة والهندسة.</p>
                 </div>
             </div>
             <!-- تم إضافة مشاريع جديدة هنا -->
             <div class="project-card">
-                <img src="assets/index/92191736766051.jpg" alt="Project">
+                <img src="assets/new-project/WhatsApp Image 2026-06-17 at 11.20.59 AM.jpeg" alt="Project">
                 <div class="project-content">
-                    <h3>مركز الأعمال التقني</h3>
-                    <p>حلول ذكية للمباني الإدارية والشركات الناشئة المتطورة.</p>
+                    <h3>مشروع تجاري مول</h3>
+                    <p>تقديم حلول ذكية للمباني التجارية .</p>
                 </div>
             </div>
             <div class="project-card">
-                <img src="assets/index/16001737006603.jpg" alt="Project">
+                <img src="assets/new-project/WhatsApp Image 2026-06-17 at 11.25.39 AM.jpeg" alt="Project">
                 <div class="project-content">
-                    <h3>مشروع البنية التحتية</h3>
-                    <p>تخطيط وتطوير شبكات الطرق والمرافق الحيوية للمدن الجديدة.</p>
+                    <h3>مشروع عمارة سكنية</h3>
+                    <p>تخطيط وتطوير عمارات سكنية للمدن الجديدة.</p>
                 </div>
             </div>
             <div class="project-card">
-                <img src="assets/index/14941736766258.jpg" alt="Project">
+                <img src="assets/new-project/WhatsApp Image 2026-06-17 at 11.49.52 AM.jpeg" alt="Project">
                 <div class="project-content">
-                    <h3>المركز الرياضي المجتمعي</h3>
-                    <p>منشآت رياضية متطورة تخدم رؤية المجتمع الصحي والنشط.</p>
+                    <h3>المجمع التجاري</h3>
+                    <p>مشروع مجمع تجاري حديث تخدم رؤية المجتمع .</p>
                 </div>
             </div>
         </div>
@@ -661,7 +662,7 @@
   <div class="services-carousel-wrapper">
     <button class="service-arrow prev-service">→</button>
   <div class="services-container">
-    <div class="service-card">
+    <div class="service-card active">
       <div class="icon-circle">
         <img src="assets/icon/prototype.png" alt="Engineering">
       </div>
@@ -677,7 +678,7 @@
       <a href="#">تفاصيل الخدمة ←</a>
     </div>
 
-    <div class="service-card">
+    <div class="service-card active">
       <div class="icon-circle">
         <img src="assets/icon/support.png" alt="Supervision">
       </div>
@@ -685,7 +686,7 @@
       <a href="#">تفاصيل الخدمة ←</a>
     </div>
 
-    <div class="service-card">
+    <div class="service-card active">
       <div class="icon-circle">
         <img src="https://cdn-icons-png.flaticon.com/512/3159/3159310.png" alt="Interior">
       </div>
@@ -727,14 +728,15 @@
     </section>
 
 
+    
     <div id="footer-placeholder"></div>
     
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const wrapper = document.querySelector('.cards-wrapper');
-            const prevBtn = document.querySelector('.prev'); // الزر الأيسر
-            const nextBtn = document.querySelector('.next'); // الزر الأيمن
+            const prevBtn = document.querySelector('.next'); // الزر الأيسر
+            const nextBtn = document.querySelector('.prev'); // الزر الأيمن
 
             // في اتجاه RTL: القيمة السالبة تحرك المعرض لليسار (التالي) والموجبة لليمين (السابق)
             prevBtn.onclick = () => wrapper.scrollBy({ left: -340, behavior: 'smooth' });
