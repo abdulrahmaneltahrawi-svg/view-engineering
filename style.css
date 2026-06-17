@@ -82,7 +82,7 @@ header {
 }
 
 .top-bar-contact a:hover, .top-bar-social a:hover {
-  color: #f1c40f; /* تغيير اللون للذهبي عند التمرير */
+  color: #141414; /* تغيير اللون للذهبي عند التمرير */
 }
 
 /* حاوية للهيدر لترتيب اللوجو والقائمة */
@@ -159,7 +159,7 @@ nav > ul > li:hover > a::after {
   display: none;
   position: absolute;
   top: 100%; /* جعل القائمة تبدأ مباشرة تحت الرابط */
-  right: 0;
+  right: -2px;
   background-color: #6c363c;
   list-style: none;
   min-width: 180px;
@@ -183,12 +183,23 @@ nav > ul > li:hover > a::after {
 }
 
 .dropdown li a {
-  font-size: 18px; /* حجم أصغر قليلاً للقوائم الفرعية */
+  font-size: 16px; /* حجم أصغر قليلاً للقوائم الفرعية */
   text-decoration: none; /* إزالة أي خط تحت النص */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
 }
 
 .dropdown li a::after {
   content: none; /* التأكد من عدم ظهور الخط المتحرك داخل القائمة المنسدلة */
+}
+
+.dropdown li a img {
+  width: 22px;
+  height: 22px;
+  filter: brightness(0) invert(1); /* جعل الأيقونة باللون الأبيض */
 }
 
 .has-dropdown:hover .dropdown {
