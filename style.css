@@ -283,6 +283,7 @@ nav > ul > li:hover > a::after {
   font-family: 'Arial', sans-serif; /* تم تغيير خط الفوتر هنا */
   font-weight: bold;
   color: #f8f9fa; /* يمكنك تغيير هذا الكود لأي لون تريده */
+  transition: color 0.3s;
 }
 
 .footer-item:hover{
@@ -324,7 +325,6 @@ nav > ul > li:hover > a::after {
   border-radius: 50%; /* لجعل الزر دائريًا */
   text-align: center;
   font-size: 30px;
-  box-shadow: 2px 2px 3px #999; /* ظل خفيف للزر */
   z-index: 1000; /* لضمان ظهوره فوق العناصر الأخرى */
   display: flex;
   align-items: center;
