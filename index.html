@@ -128,6 +128,50 @@
   100% { opacity: 0; }
 }
 
+/* تنسيق الفلتر المحسن */
+.projects-filter-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 30px 0 50px;
+  direction: rtl;
+}
+
+.filter-tabs {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  gap: 25px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.filter-item {
+  font-size: 18px;
+  font-weight: 500;
+  color: #555555;
+  cursor: pointer;
+  padding-bottom: 6px;
+  position: relative;
+  transition: all 0.3s ease;
+  user-select: none;
+}
+
+.filter-item:hover, .filter-item.active {
+  color: #7c3c44;
+}
+
+.filter-item.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #7c3c44;
+  border-radius: 2px;
+}
 
 /*project*/
 
@@ -173,11 +217,13 @@
     margin: 0 auto;
 }
 
-.cards-wrapper {
+.cards-wrapper, .cards {
     display: flex;
-    gap: 20px;
-    overflow-x: hidden;
-    scroll-behavior: smooth;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 40px;
+    width: 100%;
     padding: 20px 10px;
     width: 100%;
 }
@@ -619,54 +665,42 @@
 
     <section class="projects-section" id="projects">
     <h2>مشاريعنا</h2>
-    <div class="carousel-container">
-        <button class="arrow prev">→</button>
-        <div class="cards-wrapper">
-            <div class="project-card">
+    <div class="projects-filter-container">
+        <ul class="filter-tabs" id="projects-filter-tabs">
+            <li class="filter-item active" data-category="all">الكل</li>
+            <li class="filter-item" data-category="سكني">سكني</li>
+            <li class="filter-item" data-category="تجاري">تجاري</li>
+            <li class="filter-item" data-category="محطات الوقود">محطات الوقود</li>
+            <li class="filter-item" data-category="اداري">إداري</li>
+            <li class="filter-item" data-category="مستودعات">مستودعات</li>
+        </ul>
+    </div>
+
+    <div class="cards" id="projects-grid">
+            <div class="project-card" data-category="سكني">
                 <img src="assets/new-project/ChatGPT Image Jun 17, 2026, 10_54_29 AM (1).png" alt="Project">
-                <div class="project-content">
-                    <h3>مشروع فيلا سكنية</h3>
-                    <p>تصميم معماري عصري يراعي كفاءة المساحات والبيئة العملية.</p>
-                </div>
             </div>
-            <div class="project-card">
+            <div class="project-card" data-category="سكني">
                 <img src="assets/new-project/ChatGPT Image Jun 17, 2026, 11_13_29 AM.png" alt="Project">
-                <div class="project-content">
-                    <h3>الفيلا السكنية الفاخرة</h3>
-                    <p>تصميم داخلي فريد يجمع بين الرقي الكلاسيكي واللمسات الحديثة.</p>
-                </div>
             </div>
-            <div class="project-card">
+            <div class="project-card" data-category="سكني">
                 <img src="assets/new-project/ChatGPT Image Jun 17, 2026, 11_15_05 AM.png" alt="Project">
-                <div class="project-content">
-                    <h3>تصميم عمارة سكنية</h3>
-                    <p>إدارة تنفيذ مشاريع إنشائية ضخمة بأعلى معايير الجودة والهندسة.</p>
-                </div>
             </div>
-            <!-- تم إضافة مشاريع جديدة هنا -->
-            <div class="project-card">
+            <div class="project-card" data-category="تجاري">
                 <img src="assets/new-project/WhatsApp Image 2026-06-17 at 11.20.59 AM.jpeg" alt="Project">
-                <div class="project-content">
-                    <h3>مشروع تجاري مول</h3>
-                    <p>تقديم حلول ذكية للمباني التجارية .</p>
-                </div>
             </div>
-            <div class="project-card">
+            <div class="project-card" data-category="سكني">
                 <img src="assets/new-project/WhatsApp Image 2026-06-17 at 11.25.39 AM.jpeg" alt="Project">
-                <div class="project-content">
-                    <h3>مشروع عمارة سكنية</h3>
-                    <p>تخطيط وتطوير عمارات سكنية للمدن الجديدة.</p>
-                </div>
             </div>
-            <div class="project-card">
+            <div class="project-card" data-category="تجاري">
                 <img src="assets/new-project/WhatsApp Image 2026-06-17 at 11.49.52 AM.jpeg" alt="Project">
-                <div class="project-content">
-                    <h3>المجمع التجاري</h3>
-                    <p>مشروع مجمع تجاري حديث تخدم رؤية المجتمع .</p>
-                </div>
             </div>
-        </div>
-        <button class="arrow next">←</button>
+            <div class="project-card" data-category="محطات الوقود">
+                <img src="assets/new-project/WhatsApp Image 2026-06-17 at 12.44.20 PM.jpeg" alt="Project">
+            </div>
+            <div class="project-card" data-category="محطات الوقود">
+                <img src="assets/new-project/WhatsApp Image 2026-06-17 at 12.44.20 PM (1).jpeg" alt="Project">
+            </div>
     </div>
     <a href="#" class="view-more">عرض كافة المشاريع <i class="fas fa-arrow-left"></i></a>
 </section>
@@ -767,14 +801,34 @@
     
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
+        // Projects Filter Logic
         document.addEventListener('DOMContentLoaded', function() {
-            const wrapper = document.querySelector('.cards-wrapper');
-            const prevBtn = document.querySelector('.next'); // الزر الأيسر
-            const nextBtn = document.querySelector('.prev'); // الزر الأيمن
+            const filterTabs = document.getElementById('projects-filter-tabs');
+            const projectCards = document.querySelectorAll('#projects-grid .project-card');
 
-            // في اتجاه RTL: القيمة السالبة تحرك المعرض لليسار (التالي) والموجبة لليمين (السابق)
-            prevBtn.onclick = () => wrapper.scrollBy({ left: -340, behavior: 'smooth' });
-            nextBtn.onclick = () => wrapper.scrollBy({ left: 340, behavior: 'smooth' });
+            if (filterTabs) {
+                filterTabs.addEventListener('click', function(event) {
+                    const target = event.target;
+                    if (target.classList.contains('filter-item')) {
+                        filterTabs.querySelectorAll('.filter-item').forEach(item => {
+                            item.classList.remove('active');
+                        });
+                        target.classList.add('active');
+
+                        const category = target.dataset.category;
+                        projectCards.forEach(card => {
+                            const cardCategory = card.dataset.category;
+                            if (category === 'all' || cardCategory === category) {
+                                card.style.display = 'block';
+                                setTimeout(() => card.style.opacity = '1', 10);
+                            } else {
+                                card.style.display = 'none';
+                                card.style.opacity = '0';
+                            }
+                        });
+                    }
+                });
+            }
         });
 
         // Hamburger Menu Toggle Logic
