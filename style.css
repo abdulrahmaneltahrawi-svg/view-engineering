@@ -64,7 +64,7 @@ header {
   align-items: center;
   max-width: 1400px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 20px;  
 }
 
 .top-bar-contact, .top-bar-social {
@@ -231,6 +231,10 @@ nav > ul > li:hover > a::after {
   font-family: 'Arial', sans-serif; /* تم تغيير خط الفوتر هنا */
   font-weight: bold;
   color: #f8f9fa; /* يمكنك تغيير هذا الكود لأي لون تريده */
+}
+
+.footer-item:hover{
+  color: #1818188f;
 }
 
 /* تنسيق الروابط داخل عناصر الفوتر */

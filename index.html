@@ -332,7 +332,7 @@
 
 .clients-slider0 {
     padding: 20px 0 50px 0;
-    max-width: 900px; /* تقليل عرض الحاوية لتقريب الدوائر من بعضها */
+    max-width: 1000px; /* تقليل عرض الحاوية لتقريب الدوائر من بعضها */
     margin: 0 auto;
 }
 
@@ -359,7 +359,6 @@
     max-width: 100%;
     max-height: 80px;
     object-fit: contain;
-    filter: grayscale(100%);
     transition: filter 0.3s ease;
 }
 
@@ -585,7 +584,6 @@
     <section class="projects-section" id="projects">
     <h2>مشاريعنا</h2>
     <div class="carousel-container">
-        <button class="arrow prev">→</button>
         <div class="cards-wrapper">
             <div class="project-card">
                 <img src="assets/project/download.jpg" alt="Project">
@@ -715,32 +713,20 @@
 </section>
 
     <section class="clients-section" id="clients">
-        <h2 class="clinet-title">العملاء</h2>
+        <h2 class="clinet-title">الهيئات المعتمدة</h2>
         <div class="swiper clients-slider0">
             <div class="swiper-wrapper">
-                <div class="swiper-slide"><div class="client-logo"><img src="assets/clients/001-1.jpg" alt="العميل 1"></div></div>
-                <div class="swiper-slide"><div class="client-logo"><img src="assets/clients/002-1.jpg" alt="العميل 2"></div></div>
-                <div class="swiper-slide"><div class="client-logo"><img src="assets/clients/003-1.jpg" alt="العميل 3"></div></div>
-                <div class="swiper-slide"><div class="client-logo"><img src="assets/clients/004-2.jpg" alt="العميل 4"></div></div>
-                <div class="swiper-slide"><div class="client-logo"><img src="assets/clients/006-1.jpg" alt="العميل 5"></div></div>
-                <div class="swiper-slide"><div class="client-logo"><img src="assets/clients/007-1.png" alt="العميل 6"></div></div>
-                <div class="swiper-slide"><div class="client-logo"><img src="assets/clients/008-1.jpg" alt="العميل 7"></div></div>
-                <div class="swiper-slide"><div class="client-logo"><img src="assets/clients/009-1.jpg" alt="العميل 8"></div></div>
-                <div class="swiper-slide"><div class="client-logo"><img src="assets/clients/010-1.jpg" alt="العميل 9"></div></div>
-                <div class="swiper-slide"><div class="client-logo"><img src="assets/clients/011.jpg" alt="العميل 10"></div></div>
-                <div class="swiper-slide"><div class="client-logo"><img src="assets/clients/025.jpg" alt="العميل 11"></div></div>
-                <div class="swiper-slide"><div class="client-logo"><img src="assets/clients/013.jpg" alt="العميل 12"></div></div>
-                <div class="swiper-slide"><div class="client-logo"><img src="assets/clients/014.jpg" alt="العميل 13"></div></div>
-                <div class="swiper-slide"><div class="client-logo"><img src="assets/clients/015.jpg" alt="العميل 14"></div></div>
-                <div class="swiper-slide"><div class="client-logo"><img src="assets/clients/016.jpg" alt="العميل 15"></div></div>
-                <div class="swiper-slide"><div class="client-logo"><img src="assets/clients/017.jpg" alt="العميل 16"></div></div>
+                <div class="swiper-slide"><div class="client-logo"><img src="assets/الهيئات/شعار أمانة المنطقة الشرقية بدقة عالية svg - png.png" alt="العميل 1"></div></div>
+                <div class="swiper-slide"><div class="client-logo"><img src="assets/الهيئات/شعار شركة المياه الوطنية بدقة عالية - SVG - PNG.png" alt="العميل 2"></div></div>
+                <div class="swiper-slide"><div class="client-logo"><img src="assets/الهيئات/شعار منصة بلدي - SVG.png" alt="العميل 3"></div></div>
+                <div class="swiper-slide"><div class="client-logo"><img src="assets/الهيئات/شعار وهوية السعودية للطاقة بدقة عالية SVG - PDF - PNG.png" alt="العميل 4"></div></div>
+                <div class="swiper-slide"><div class="client-logo"><img src="assets/الهيئات/1916ae7b0e67-100839.jpg.webp" alt="العميل 5"></div></div>
             </div>
             <div class="swiper-pagination"></div>
         </div>
     </section>
 
 
-    
     <div id="footer-placeholder"></div>
     
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
@@ -781,8 +767,8 @@
                 480: { slidesPerView: 2, slidesPerGroup: 2 }, 
                 768: { slidesPerView: 3, slidesPerGroup: 3 },
                 1024: { 
-                    slidesPerView: 4, /* عرض 4 عملاء */
-                    slidesPerGroup: 4 /* تحريك 4 عملاء مع كل نقطة */
+                    slidesPerView: 5, /* عرض 4 عملاء */
+                    slidesPerGroup: 5 /* تحريك 4 عملاء مع كل نقطة */
                 },
             }
         });
