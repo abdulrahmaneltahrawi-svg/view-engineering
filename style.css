@@ -310,3 +310,36 @@ nav > ul > li:hover > a::after {
   background-color: transparent; /* إذا كانت الأيقونات شفافة، قد تحتاج لخلفية */
   filter: brightness(0) invert(1);
 }
+
+
+/*WhatApp*/
+/* زر واتساب العائم */
+.whatsapp-float {
+  position: fixed;
+  bottom: 20px; /* المسافة من الأسفل */
+  right: 20px; /* المسافة من اليمين */
+  width: 60px; /* عرض الزر */
+  height: 60px; /* ارتفاع الزر */
+  background-color: #25d366; /* لون واتساب الأخضر */
+  color: white;
+  border-radius: 50%; /* لجعل الزر دائريًا */
+  text-align: center;
+  font-size: 30px;
+  box-shadow: 2px 2px 3px #999; /* ظل خفيف للزر */
+  z-index: 1000; /* لضمان ظهوره فوق العناصر الأخرى */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none; /* إزالة الخط تحت الرابط */
+  transition: background-color 0.3s ease;
+}
+
+.whatsapp-float img {
+  width: 55px; /* حجم أيقونة واتساب */
+  height: 55px;
+  filter: brightness(0) invert(1); /* لجعل الأيقونة بيضاء إذا كانت ملونة */
+}
+
+.whatsapp-float:hover {
+  background-color: #7d3f45; /* لون أخضر أغمق عند التمرير */
+}
