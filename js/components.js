@@ -9,8 +9,7 @@ fetch('components/header.html')
       if (hamburger) {
         hamburger.addEventListener('click', function() {
           const navMenu = document.getElementById('nav-menu');
-          navMenu.classList.toggle('hidden');
-          navMenu.classList.toggle('flex');
+          navMenu.classList.toggle('active');
         });
       }
     });
