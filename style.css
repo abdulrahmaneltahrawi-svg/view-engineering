@@ -1,344 +1,161 @@
-@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&family=Tajawal:wght@400;700&display=swap');
-/* إعدادات عامة */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  /* font-family moved to body for better inheritance */
-}
+/* ======= Global ======= */
+    body { font-family: 'Tajawal', sans-serif; }
+    html { scroll-behavior: smooth; }
 
-/* تفعيل النزول السلس */
-html {
-  scroll-behavior: smooth;
-}
+    /* ======= Background ======= */
+    .bg-site {
+      background: url("assets/imgae/Background.png") center/cover no-repeat;
+      background-attachment: fixed;
+    }
 
+    /* ======= Nav underline animation ======= */
+    .nav-link { position: relative; }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -6px; right: 0;
+      width: 0; height: 3px;
+      background: #fff;
+      transition: width .3s ease;
+    }
+    .nav-link:hover::after { width: 100%; }
 
-body {
-  /* مسار الصورة - تأكد من صحة المسار */
-  background-image: url("assets/imgae/Background.png");
+    /* ======= Hero slider ======= */
+    .slide {
+      position: absolute; inset: 0;
+      background-size: cover; background-position: center;
+      opacity: 0;
+      animation: fadeSlider 16s infinite;
+    }
+    .slide::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: rgba(0,0,0,.5);
+      z-index: 1;
+    }
+    .slide:nth-child(1) { animation-delay: 0s; }
+    .slide:nth-child(2) { animation-delay: 4s; }
+    .slide:nth-child(3) { animation-delay: 8s; }
+    .slide:nth-child(4) { animation-delay: 12s; }
+    @keyframes fadeSlider {
+      0%   { opacity: 0; }
+      5%   { opacity: 1; }
+      25%  { opacity: 1; }
+      30%  { opacity: 0; }
+      100% { opacity: 0; }
+    }
 
-  /* 1. منع التكرار تماماً */
-  background-repeat: no-repeat;
+    /* ======= Section title underline ======= */
+    .section-heading { position: relative; display: inline-block; }
+    .section-heading::after {
+      content: '';
+      position: absolute;
+      bottom: -14px; left: 50%; transform: translateX(-50%);
+      width: 80px; height: 4px;
+      background-color: #7c3c44;
+      border-radius: 2px;
+    }
 
-  /* 2. جعل الصورة تغطي كامل مساحة الشاشة (Viewport) */
-  background-size: cover;
+    /* ======= Filter active underline ======= */
+    .filter-item.active { color: #7c3c44; }
+    .filter-item.active::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0;
+      width: 100%; height: 2px;
+      background: #7c3c44;
+      border-radius: 2px;
+    }
 
-  /* 3. الحل الحقيقي: تثبيت الخلفية في مكانه */
-  background-attachment: fixed;
+    /* ======= Contact CTA parallax bg ======= */
+    .contact-cta {
+      background-image: url('assets/imgae/View-Picsart-AiImageEnhancer.png');
+      background-size: cover; background-position: center;
+      background-attachment: fixed;
+    }
+    .cta-section {
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,.6);
+      z-index: 1;
+    }
 
-  /* 4. وضع الصورة في المنتصف لضمان التناسق */
-  background-position: center center;
+    /* ======= Dots pattern ======= */
+    .dots-pattern {
+      background-image: radial-gradient(#fff 1px, transparent 1px);
+      background-size: 10px 10px;
+    }
 
-  /* اختياري: تأكيد أن الـ body يأخذ كامل الطول (لبعض الحالات) */
-  min-height: 100vh;
-  font-family: "Tajawal", sans-serif;
-  font-weight: 400; /* الوزن العادي أفضل كأساس للبدن */
-  font-style: normal;
-  margin: 0;
-  padding-top: 130px; /* تعويض ارتفاع الهيدر المزدوج لضمان عدم تغطية المحتوى */
-}
-@media (max-width: 768px) {
-  body { padding-top: 100px; }
-}
+    /* ======= Swiper bullets ======= */
+    .swiper-pagination-bullet { width:12px; height:12px; background:#ccc; opacity:1; }
+    .swiper-pagination-bullet-active { background-color: #7c3c44 !important; }
 
-/* الهيدر (القائمة العلوية) */
-header {
-  background-color: #7c3c44;
-  color: #fff;
-  position: fixed; /* جعل الهيدر ثابتاً في الأعلى */
-  width: 100%;
-  top: 0;
-  z-index: 1000;
-  padding: 0;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
-}
+    /* ======= Mobile nav ======= */
+    @media (max-width: 768px) {
+      #nav-menu {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        padding: 20px 0;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        background: #7c3c44;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        border-radius: 0 0 16px 16px;
+      }
+      #nav-menu.active { display: flex; }
+      #nav-menu ul { flex-direction: column; width: 100%; padding: 0 20px; }
+      #nav-menu ul li { width: 100%; text-align: center; padding: 8px 0; }
+      #nav-menu ul li a { justify-content: center; }
+      #nav-menu ul li ul {
+        position: static !important;
+        display: none !important;
+        background: transparent !important;
+        box-shadow: none !important;
+        min-width: unset !important;
+        padding: 0 !important;
+      }
+      #nav-menu ul li:hover ul,
+      #nav-menu ul li.group:hover ul {
+        display: flex !important;
+      }
+      #nav-menu ul li ul li { padding: 6px 0; }
+      #nav-menu ul li ul li a { justify-content: center; font-size: 14px; }
+    }
 
-/* الشريط العلوي (Top Bar) */
-.top-bar {
-  background-color: rgba(0, 0, 0, 0.2); /* تعتيم بسيط لتمييز الشريط العلوي */
-  padding: 8px 0;
-  font-size: 14px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
+    /* ======= Mobile hero ======= */
+    @media (max-width: 640px) {
+      .hero-section { min-height: 70vh; height: auto; }
+    }
 
-.top-bar .container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 0 20px;  
-}
+    /* ======= Mobile project cards ======= */
+    @media (max-width: 640px) {
+      #projects-grid .project-card { width: 100% !important; max-width: 350px; }
+    }
 
-.top-bar-contact, .top-bar-social {
-  display: flex;
-  gap: 20px;
-  direction: ltr;
-}
+    /* ======= Mobile contact CTA ======= */
+    @media (max-width: 640px) {
+      .contact-cta { height: 60vh !important; }
+    }
 
-.top-bar-contact a, .top-bar-social a {
-  color: white;
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  transition: color 0.3s;
-}
+    /* ======= Mobile about badge ======= */
+    @media (max-width: 640px) {
+      #about .absolute.-top-8 { top: -20px !important; left: -10px !important; padding: 8px !important; }
+      #about .absolute.-top-8 .text-3xl { font-size: 1.5rem !important; }
+      #about .absolute.-top-8 p { font-size: 0.7rem !important; }
+    }
 
-.top-bar-contact a:hover, .top-bar-social a:hover {
-  color: #141414; /* تغيير اللون للذهبي عند التمرير */
-}
-
-@media (max-width: 768px) {
-  .top-bar { display: none; } /* إخفاء الشريط العلوي في الجوال لتوفير مساحة */
-}
-
-/* حاوية للهيدر لترتيب اللوجو والقائمة */
-header .container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 1300px;
-  margin: 0 auto;
-}
-
-.main-header {
-  padding: 10px 30px;
-}
-
-@media (max-width: 768px) {
-  .main-header { padding: 10px 15px; }
-  .logo img { height: 50px; }
-}
-
-@media (max-width: 768px) {
-  .main-header { flex-direction: row-reverse; justify-content: space-between; align-items: center; }
-  
-  .hamburger-menu { display: block !important; cursor: pointer; font-size: 24px; color: white; }
-
-  nav {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    background-color: #7c3c44;
-    display: none;
-    flex-direction: column;
-    padding: 20px 0;
-    box-shadow: 0 5px 10px rgba(0,0,0,0.2);
-  }
-
-  nav.active { display: flex; }
-
-  nav ul { flex-direction: column; align-items: center; gap: 20px !important; }
-  nav ul li { margin: 10px 0; }
-  
-  .dropdown { position: static; box-shadow: none; background-color: rgba(0,0,0,0.1); width: 100%; }
-  .has-dropdown:hover .dropdown { display: flex; }
-}
-
-.hamburger-menu {
-  display: none;
-}
-
-.logo img {
-  height: 75px; /* حجم متناسق مع الهيدر الجديد */
-  width: auto;
-}
-
-@media (max-width: 768px) {
-  nav ul { gap: 5px; }
-  nav ul li a { font-size: 14px; }
-}
-
-nav ul {
-  display: flex;
-  justify-content: center;
-  list-style: none;
-  gap: 15px;
-}
-
-nav ul li {
-  margin: 0 15px; /* تقليل المسافة الأفقية بين الروابط */
-  position: relative; /* ضروري لتحديد موقع القائمة المنسدلة */
-}
-
-nav ul li a {
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 20px;
-  transition: color 0.3s;
-}
-
-/* إزالة الخط العادي وإضافة الخط الجميل (Animated Underline) */
-nav ul li a:hover {
-  text-decoration: none;
-}
-
-/* الخط المتحرك للروابط الأساسية فقط */
-nav > ul > li > a::after {
-  content: '';
-  position: absolute;
-  width: 0;
-  height: 3px; /* سمك الخط */
-  bottom: -8px;
-  right: 0; /* يبدأ من اليمين لأن الاتجاه RTL */
-  background-color: #ffffff; /* لون الخط */
-  transition: width 0.3s ease-in-out;
-}
-
-/* تمدد الخط عند الوقوف على الرابط أو فتح القائمة المنسدلة */
-nav > ul > li:hover > a::after {
-  width: 100%; /* تمدد الخط عند الوقوف عليه */
-}
-
-/* تنسيق سهم القائمة المنسدلة */
-.dropdown-arrow {
-  width: 20px;
-  height: 20px;
-  margin-right: 5px;
-  vertical-align: middle;
-  filter: brightness(0) invert(1); /* جعل السهم أبيض */
-}
-
-/* تنسيق القائمة المنسدلة (Dropdown) */
-.dropdown {
-  display: none;
-  position: absolute;
-  top: 100%; /* جعل القائمة تبدأ مباشرة تحت الرابط */
-  right: -2px;
-  background-color: #6c363c;
-  list-style: none;
-  min-width: 180px;
-  flex-direction: column;
-  padding: 10px 0;
-  box-shadow: 0 5px 10px rgba(0,0,0,0.2);
-  z-index: 1001;
-  border-radius: 8px;
-  overflow: hidden; /* لضمان عدم خروج لون الخلفية عن الزوايا المنحنية */
-  direction: ltr;
-}
-
-.dropdown li {
-  margin: 0;
-  padding: 8px 15px;
-  transition: background-color 0.3s;
-}
-
-/* تغيير لون الخلفية للأفرع عند التمرير */
-.dropdown li:hover {
-  background-color: rgba(0, 0, 0, 0.378); /* درجة أفتح قليلاً من العنابي */
-}
-
-.dropdown li a {
-  font-size: 16px; /* حجم أصغر قليلاً للقوائم الفرعية */
-  text-decoration: none; /* إزالة أي خط تحت النص */
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  width: 100%;
-}
-
-.dropdown li a::after {
-  content: none; /* التأكد من عدم ظهور الخط المتحرك داخل القائمة المنسدلة */
-}
-
-.dropdown li a img {
-  width: 22px;
-  height: 22px;
-  filter: brightness(0) invert(1); /* جعل الأيقونة باللون الأبيض */
-}
-
-.has-dropdown:hover .dropdown {
-  display: flex; /* إظهار القائمة عند تمرير الماوس */
-}
-
-/* تنسيق الفوتر الجديد */
-.footer {
-  background-color: #7c3c44; /* اللون العنابي الموجود في الصورة */
-  color: white;
-  padding: 20px 0;
-}
-
-.footer-container {
-  display: flex;
-  flex-direction: row-reverse;
-  justify-content: center;
-  align-items: center;
-  gap: 30px; /* المسافة بين العناصر */
-  flex-wrap: wrap;
-}
-@media (max-width: 768px) {
-  .footer-container { flex-direction: column; text-align: center; gap: 15px; }
-  .footer-item a { justify-content: center; }
-}
-
-.footer-item {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  /* تم نقل خصائص flex و gap إلى .footer-item a */
-  font-size: 16px; /* تم تكبير الحجم إلى 16 بكسل */
-  font-family: 'Arial', sans-serif; /* تم تغيير خط الفوتر هنا */
-  font-weight: bold;
-  color: #f8f9fa; /* يمكنك تغيير هذا الكود لأي لون تريده */
-  transition: color 0.3s;
-}
-
-.footer-item:hover{
-  color: #1818188f;
-}
-
-/* تنسيق الروابط داخل عناصر الفوتر */
-.footer-item a {
-  color: inherit; /* لضمان أن لون النص داخل الرابط يتبع لون العنصر الأب */
-  text-decoration: none; /* لإزالة الخط الافتراضي تحت الروابط */
-  display: flex; /* لجعل الرابط حاوية مرنة لترتيب الأيقونة والنص */
-  align-items: center; /* لمحاذاة الأيقونة والنص عمودياً */
-  gap: 5px; /* المسافة بين الأيقونة والنص */
-  direction: ltr;
-}
-
-/* تنسيق الأيقونات (الآن هي صور img) */
-.footer-item img {
-  border-radius: 50%;
-  padding: 5px;
-  width: 41px; /* تحديد عرض الأيقونة */
-  height: 41px; /* تحديد ارتفاع الأيقونة */
-  object-fit: contain; /* للتأكد من أن الصورة تتناسب داخل المساحة المحددة دون قص */
-  background-color: transparent; /* إذا كانت الأيقونات شفافة، قد تحتاج لخلفية */
-  filter: brightness(0) invert(1);
-}
-
-
-/*WhatApp*/
-/* زر واتساب العائم */
-.whatsapp-float {
-  position: fixed;
-  bottom: 20px; /* المسافة من الأسفل */
-  right: 20px; /* المسافة من اليمين */
-  width: 60px; /* عرض الزر */
-  height: 60px; /* ارتفاع الزر */
-  background-color: #25d366; /* لون واتساب الأخضر */
-  color: white;
-  border-radius: 50%; /* لجعل الزر دائريًا */
-  text-align: center;
-  font-size: 30px;
-  z-index: 1000; /* لضمان ظهوره فوق العناصر الأخرى */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none; /* إزالة الخط تحت الرابط */
-  transition: background-color 0.3s ease;
-}
-
-.whatsapp-float img {
-  width: 55px; /* حجم أيقونة واتساب */
-  height: 55px;
-  filter: brightness(0) invert(1); /* لجعل الأيقونة بيضاء إذا كانت ملونة */
-}
-
-.whatsapp-float:hover {
-  background-color: #7d3f45; /* لون أخضر أغمق عند التمرير */
-}
+    /* ======= Mobile footer ======= */
+    @media (max-width: 640px) {
+      footer .flex-wrap { flex-direction: column; gap: 12px; }
+      footer .flex-wrap > div { width: 100%; justify-content: center; }
+      footer .flex-wrap > div a { justify-content: center; }
+      footer .flex-wrap > div a span { font-size: 13px; }
+    }
