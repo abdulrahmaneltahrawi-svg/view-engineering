@@ -1,4 +1,8 @@
+import { useState } from 'react'
+
 function Projects() {
+  const [activeFilter, setActiveFilter] = useState('الكل')
+
   const projects = [
     { img: '/assets/project/project (2).webp', category: 'سكني' },
     { img: '/assets/project/project-villa.webp', category: 'سكني' },
@@ -16,6 +20,10 @@ function Projects() {
 
   const categories = ['الكل', 'سكني', 'تجاري', 'محطات الوقود', 'اداري', 'مستودعات']
 
+  const filteredProjects = activeFilter === 'الكل'
+    ? projects
+    : projects.filter(p => p.category === activeFilter)
+
   return (
     <section className="py-20 px-5 text-center overflow-hidden" id="projects">
       <h2 className="section-heading font-cairo text-4xl font-bold text-maroon mb-16">مشاريعنا</h2>
@@ -25,8 +33,8 @@ function Projects() {
           {categories.map((cat) => (
             <li
               key={cat}
-              className={`filter-item relative text-lg font-medium text-gray-500 cursor-pointer pb-1 transition-colors duration-300 hover:text-maroon ${cat === 'الكل' ? 'active' : ''}`}
-              data-category={cat === 'الكل' ? 'all' : cat}
+              onClick={() => setActiveFilter(cat)}
+              className={`filter-item relative text-lg font-medium cursor-pointer pb-1 transition-colors duration-300 hover:text-maroon ${activeFilter === cat ? 'text-maroon font-bold' : 'text-gray-500'}`}
             >
               {cat}
             </li>
@@ -35,7 +43,7 @@ function Projects() {
       </div>
 
       <div id="projects-grid" className="flex flex-wrap justify-center gap-7 max-w-6xl mx-auto px-2">
-        {projects.map((project, index) => (
+        {filteredProjects.map((project, index) => (
           <div
             key={index}
             className="project-card w-75 flex-none bg-white rounded-2xl overflow-hidden shadow-md hover:-translate-y-2 hover:shadow-xl transition-all duration-300 border border-gray-100"
